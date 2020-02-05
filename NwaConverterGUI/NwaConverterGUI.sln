@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NwaConverterGUI", "NwaConverterGUI\NwaConverterGUI.csproj", "{1F19619C-E91B-42A8-B0DC-1331CB38C211}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F19619C-E91B-42A8-B0DC-1331CB38C211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F19619C-E91B-42A8-B0DC-1331CB38C211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F19619C-E91B-42A8-B0DC-1331CB38C211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F19619C-E91B-42A8-B0DC-1331CB38C211}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8625B04D-F920-4108-BD90-ED20A457AF38}
+	EndGlobalSection
+EndGlobal
