@@ -48,6 +48,11 @@ namespace NwaConverterGUI
         }
         private void button_Start_Click(object sender, EventArgs e)
         {
+            if(textBox_OutputPath.Text == "")
+            {
+                textBox_OutputPath.Text = Environment.CurrentDirectory;
+            }
+            textBox_OutputPath.Text = Path.GetDirectoryName(textBox_OutputPath.Text);
             if(TaskListBox.Items.Count != 0)
             {
                 thread = new Thread(start);
@@ -84,19 +89,21 @@ namespace NwaConverterGUI
                 if(comboBox_OutputFormat.SelectedItem.ToString() != ext && comboBox_OutputFormat.SelectedIndex != 0)
                 {
                     progressBar.setStatus("正在使用FFmpeg转换格式...");
-                    string fileName = textBox_OutputPath.Text + @"\" + Path.GetFileNameWithoutExtension(file) + ext;
                     bool ignoreBitRate = false;
                     string bitRate = comboBox_OutputBitRate.SelectedItem.ToString();
                     if (comboBox_OutputFormat.SelectedIndex <= 2)
                     {
                         ignoreBitRate = true;
                     }
-                    else if(comboBox_OutputBitRate.SelectedIndex == 0)
+                    else if (comboBox_OutputBitRate.SelectedIndex == 0)
                     {
                         bitRate = "320k";
                     }
-                    ffmpeg(fileName, textBox_OutputPath.Text, comboBox_OutputFormat.SelectedItem.ToString(),bitRate , ignoreBitRate);
-                    File.Delete(fileName);
+                    foreach (string fileName in Directory.GetFiles(textBox_OutputPath.Text,Path.GetFileNameWithoutExtension(file)+"*"+ext))
+                    {
+                        ffmpeg(fileName, textBox_OutputPath.Text, comboBox_OutputFormat.SelectedItem.ToString(), bitRate, ignoreBitRate);
+                        File.Delete(fileName);
+                    }
                 }
                 progressBar.addProcess(2);
             }
